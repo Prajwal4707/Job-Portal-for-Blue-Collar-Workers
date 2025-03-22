@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        margin: 100px;
+      }
+      .container {
+        width: 30%;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      h2 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+      }
+      label {
+        margin-top: 10px;
+        font-weight: 500;
+      }
+      label i {
+        margin-right: 10px;
+        color: #2a6dff;
+      }
+      input {
+        padding: 12px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+      input:focus {
+        border-color: #667eea;
+        outline: none;
+        box-shadow: 0 0 8px rgba(102, 126, 234, 0.4);
+      }
+      button {
+        margin-top: 20px;
+        padding: 12px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: all 0.3s ease;
+      }
+      button:hover {
+        background: linear-gradient(135deg, #5563c1, #5b3e82);
+      }
+      .signup-link {
+        margin-top: 15px;
+        font-size: 14px;
+      }
+      .signup-link a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .signup-link a:hover {
+        text-decoration: underline;
+      }
+      .forgot-password {
+        text-decoration: none;
+        margin-top: 15px;
+        font-size: 14px;
+      }
+      .forgot-password a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .forgot-password a:hover {
+        text-decoration: underline;
+      }
+      .role-selection {
+        margin-bottom: 15px;
+        padding: 10px;
+        background: #f4f4f4;
+        border-radius: 8px;
+        text-align: left;
+      }
+      .role-selection label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .role-selection select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login</h2>
+      <form action="../Employer/login.php" method="POST" id="loginForm">
+        <label><i class="fas fa-envelope icon"></i> Email *</label>
+        <input type="email" name="email" required />
+
+        <label><i class="fas fa-lock icon"></i> Password</label>
+        <input type="password" name="password" required />
+
+        <button type="submit">
+          <i class="fas fa-sign-in-alt icon"></i> Sign In
+        </button>
+      </form>
+      <p class="signup-link">
+        Don't have an account? <a href="../Employer/emp_reg.html">Sign up</a>
+      </p>
+      <a href="../Employer/forgot_pass.html" class="forgot-password"
+        >Forgot your password?</a
+      >
+    </div>
+
+    <script>
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          let email = document.querySelector("input[name='email']").value;
+          let password = document.querySelector("input[name='password']").value;
+
+          if (!email.includes("@")) {
+            alert("Please enter a valid email address.");
+            event.preventDefault();
+          }
+
+          if (password.length < 8) {
+            alert("Password must be at least 8 characters long.");
+            event.preventDefault();
+          }
+        });
+    </script>
+  </body>
+</html>

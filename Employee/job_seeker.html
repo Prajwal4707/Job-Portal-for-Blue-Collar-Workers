@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Form</title>
+    <!-- Font Awesome for Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Global Styles */
+      body {
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 98%;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        margin: 0;
+      }
+
+      /* Container for the form */
+      .form-container {
+        width: 40%;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      /* Header */
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      /* Section Titles */
+      h2 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      /* Label Styles */
+      label {
+        margin-top: 10px;
+        font-weight: 500;
+      }
+
+      /* Icon Styling */
+      label i {
+        margin-right: 10px;
+        /* Space between icon and label text */
+        color: #2a6dff;
+        /* Blue color for icons */
+      }
+
+      /* Input Fields and Select Dropdowns */
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="date"],
+      input[type="number"],
+      input[type="file"],
+      select {
+        width: 100%;
+        padding: 12px;
+        margin-top: 5px;
+        margin-bottom: 4px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+
+      input:focus {
+        border-color: #667eea;
+        outline: none;
+        box-shadow: 0 0 8px rgba(102, 126, 234, 0.4);
+      }
+
+      /* Submit Button Styling */
+      button {
+        margin-top: 10px;
+        margin-bottom: 4px;
+        padding: 12px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: all 0.3s ease;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        /* Align all form items to the center */
+      }
+
+      button:hover {
+        background: linear-gradient(135deg, #5563c1, #5b3e82);
+      }
+
+      .signin-link {
+        margin-top: 15px;
+        font-size: 14px;
+      }
+
+      .signin-link a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .signin-link a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1 style="color: rgb(75, 75, 255)">Application Form</h1>
+      <form action="submit.php" method="POST" enctype="multipart/form-data">
+        <h2>Personal Information</h2>
+
+        <label for="name"><i class="fas fa-user"></i> Full Name *</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="gender"><i class="fas fa-venus-mars"></i> Gender *</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="dob"
+          ><i class="fas fa-calendar-alt"></i> Date of Birth *</label
+        >
+        <input type="date" id="dob" name="dob" required />
+
+        <label for="email"><i class="fas fa-envelope"></i> Email *</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="contact"
+          ><i class="fas fa-mobile-alt"></i> Mobile Number *</label
+        >
+        <input type="tel" id="contact" name="contact" required />
+
+        <!-- OTP Buttons -->
+        <button type="button" onclick="sendOTP()">Send OTP</button>
+
+        <div id="otp-section">
+          <label for="otp-code"><i class="fas fa-key"></i> Enter OTP *</label>
+          <input type="text" id="otp-code" name="otp" required />
+          <br />
+          <button type="button" onclick="verifyOTP()">Verify OTP</button><br />
+
+          <label for="country"><i class="fas fa-globe"></i> Country *</label>
+          <select id="country" name="country" required>
+            <option value="india">India</option>
+          </select>
+
+          <label for="state"
+            ><i class="fas fa-map-marker-alt"></i> State *</label
+          >
+          <input type="text" id="state" name="state" required />
+
+          <label for="district"
+            ><i class="fas fa-map-signs"></i> District *</label
+          >
+          <input type="text" id="district" name="district" required />
+
+          <!-- Work Experience with Icon -->
+          <label for="experience"
+            ><i class="fas fa-briefcase"></i> Work Experience (in years)
+            *</label
+          >
+          <input
+            type="number"
+            id="experience"
+            name="experience"
+            min="0"
+            required
+          />
+          <label for="job-role"
+            ><i class="fas fa-briefcase"></i>Choose Your Job*</label
+          >
+          <select id="job-role" name="job-role" required>
+            <option value="">Select</option>
+            <option value="electrician">Electrician</option>
+            <option value="plumber">Plumber</option>
+            <option value="geyser-repair">Geyser Repair</option>
+            <option value="painter">Painter</option>
+            <option value="cook">Cook</option>
+            <option value="driver">Driver</option>
+            <option value="carpenter">Carpenter</option>
+            <option value="home-cleaner">Home Cleaner</option>
+          </select>
+          <!-- Job Type with Icon -->
+          <label for="job-type"
+            ><i class="fas fa-briefcase"></i> Job Type *</label
+          >
+          <select id="job-type" name="job-type" required>
+            <option value="full-time">Select</option>
+            <option value="full-time">Full-time</option>
+            <option value="part-time">Part-time</option>
+            <option value="contract">Contract</option>
+            <option value="internship">Internship</option>
+          </select>
+        </div>
+
+        <h2>Required Documents</h2>
+        <label for="photo"
+          ><i class="fas fa-image"></i> Passport Size Photo *</label
+        >
+        <input type="file" id="photo" name="photo" accept="image/*" required />
+
+        <label for="id-proof"
+          ><i class="fas fa-id-card"></i> Government ID Proof *</label
+        >
+        <input
+          type="file"
+          id="id-proof"
+          name="id-proof"
+          accept="image/*"
+          required
+        />
+
+        <label for="resume"><i class="fas fa-file-alt"></i> Resume *</label>
+        <input
+          type="file"
+          id="resume"
+          name="resume"
+          accept=".pdf,.doc,.docx"
+          required
+        />
+
+        <button type="submit">Submit Application</button>
+      </form>
+      <!-- <p class="signin-link">
+        Have an account? <a href="../Worker/emp_login.html">Sign in now</a>
+      </p> -->
+    </div>
+
+    <script>
+      function sendOTP() {
+        let phone = document.getElementById("contact").value;
+
+        if (!phone.match(/^\d{10}$/)) {
+          alert("Enter a valid 10-digit phone number");
+          return;
+        }
+
+        let apiKey = "3fcaf276-e960-11ef-8b17-0200cd936042"; // Replace with your actual API key
+        let url = `https://2factor.in/API/V1/${apiKey}/SMS/${phone}/AUTOGEN`;
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.Status === "Success") {
+              sessionStorage.setItem("session_id", data.Details);
+              document.getElementById("otp-section").style.display = "block";
+              alert("OTP sent successfully!");
+            } else {
+              alert("Failed to send OTP. Please try again.");
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+
+      function verifyOTP() {
+        let userOTP = document.getElementById("otp-code").value;
+        let sessionId = sessionStorage.getItem("session_id");
+
+        if (!sessionId) {
+          alert("Session expired. Please request a new OTP.");
+          return;
+        }
+
+        let apiKey = "3fcaf276-e960-11ef-8b17-0200cd936042"; // Replace with your actual API key
+        let url = `https://2factor.in/API/V1/${apiKey}/SMS/VERIFY/${sessionId}/${userOTP}`;
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.Status === "Success") {
+              alert("OTP Verified Successfully!");
+            } else {
+              alert("Invalid OTP. Please try again.");
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+    </script>
+  </body>
+</html>

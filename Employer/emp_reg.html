@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employer Signup</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 98%;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        margin: 0;
+      }
+      .container {
+        width: 40%;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      .signup-box h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+      }
+      label {
+        margin-top: 10px;
+        font-weight: 500;
+      }
+      label {
+        margin-top: 10px;
+        font-weight: 500;
+      }
+      label i {
+        margin-right: 10px; /* Space between icon and label text */
+        color: #2a6dff; /* Blue color for icons */
+      }
+      input,
+      textarea {
+        padding: 12px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+      input:focus,
+      textarea:focus {
+        border-color: #667eea;
+        outline: none;
+        box-shadow: 0 0 8px rgba(102, 126, 234, 0.4);
+      }
+      button {
+        margin-top: 20px;
+        padding: 12px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: all 0.3s ease;
+      }
+      button:hover {
+        background: linear-gradient(135deg, #5563c1, #5b3e82);
+      }
+      .icon {
+        margin-right: 8px;
+      }
+      .signin-link {
+        margin-top: 15px;
+        font-size: 14px;
+      }
+      .signin-link a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .signin-link a:hover {
+        text-decoration: underline;
+      }
+      .role-selection {
+        margin-bottom: 15px;
+        padding: 10px;
+        background: #f4f4f4;
+        border-radius: 8px;
+        text-align: left;
+      }
+      .role-selection label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .role-selection select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="signup-box">
+        <h2>Employer Signup</h2>
+        <form id="signup-form" action="register.php" method="post">
+          <label><i class="fas fa-user icon"></i> Concern Person Name *</label>
+          <input type="text" name="concern_person" required />
+
+          <label><i class="fas fa-envelope icon"></i> Your Email *</label>
+          <input type="email" id="user_email" name="email" required />
+
+          <button type="button" onclick="sendEmailOTP()">Send Email OTP</button>
+
+          <!-- OTP Input & Button Wrapped in a Div for Hiding -->
+          <div id="email-otp-container">
+            <label><i class="fas fa-key icon"></i> Enter Email OTP *</label>
+            <input
+              type="text"
+              id="email-otp-code"
+              placeholder="Enter Email OTP"
+              required
+            />
+            <button type="button" onclick="verifyEmailOTP()">
+              Verify Email OTP
+            </button>
+          </div>
+
+          <label><i class="fas fa-lock icon"></i> Password *</label>
+          <input type="password" name="password" required />
+
+          <label><i class="fas fa-building icon"></i> Company Name</label>
+          <input type="text" name="company" />
+
+          <label><i class="fas fa-bullhorn icon"></i> Tagline</label>
+          <input type="text" name="tagline" />
+
+          <label><i class="fas fa-file-alt icon"></i> Description</label>
+          <textarea name="description"></textarea>
+
+          <label><i class="fas fa-globe icon"></i> Website</label>
+          <input
+            type="url"
+            name="website"
+            placeholder="e.g. http://www.jobsalert.com"
+          />
+          <label><i class="fas fa-id-card icon"></i> GSTIN Number * </label>
+          <input type="text" name="gstin" placeholder="Enter GSTIN Number" />
+
+          <label><i class="fas fa-image icon"></i> Logo</label>
+          <input type="file" name="logo" />
+
+          <label><i class="fas fa-mobile icon"></i> Phone Number *</label>
+          <input
+            type="text"
+            id="phone-number"
+            placeholder="+91XXXXXXXXXX"
+            name="phone"
+            required
+          />
+
+          <button type="button" onclick="sendOTP()">Send OTP</button>
+
+          <!-- OTP Input & Button Wrapped in a Div for Hiding -->
+          <div id="phone-otp-container">
+            <label><i class="fas fa-key icon"></i> Enter OTP *</label>
+            <input type="text" id="otp-code" placeholder="Enter OTP" required />
+            <button type="button" onclick="verifyOTP()">Verify OTP</button>
+          </div>
+          <button type="submit">
+            <i class="fas fa-user-plus icon"></i> Sign Up
+          </button>
+        </form>
+        <p class="signin-link">
+          Have an account? <a href="../Worker/emp_login.html">Sign in now</a>
+        </p>
+      </div>
+    </div>
+    <script>
+      // Initialize EmailJS
+      (function () {
+        emailjs.init("uAC1dSEeZrHZd_QTZ"); // Replace with your EmailJS User ID
+      })();
+
+      // Function to generate a 6-digit OTP
+      function generateOTP() {
+        return Math.floor(100000 + Math.random() * 900000);
+      }
+
+      // Function to send OTP to email using EmailJS
+      function sendEmailOTP() {
+        let user_email = document.getElementById("user_email").value;
+        let sendEmailBtn = document.querySelector(
+          "button[onclick='sendEmailOTP()']"
+        );
+
+        if (!user_email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+          alert("Enter a valid email address");
+          return;
+        }
+
+        let otp = generateOTP();
+        sessionStorage.setItem("email_otp", otp); // Store OTP for verification
+
+        let templateParams = {
+          to_email: user_email,
+          otp: otp,
+        };
+
+        emailjs
+          .send("service_8rfea1n", "template_8a7e8x9", templateParams)
+          .then((response) => {
+            alert("OTP sent successfully to " + user_email);
+            console.log("Email sent:", response);
+            sendEmailBtn.style.display = "none"; // Hide send OTP button
+          })
+          .catch((error) => {
+            alert("Error sending OTP.");
+            console.error("Error:", error);
+          });
+      }
+
+      // Function to verify email OTP
+      function verifyEmailOTP() {
+        let userOTP = document.getElementById("email-otp-code").value;
+        let storedOTP = sessionStorage.getItem("email_otp");
+
+        if (userOTP === storedOTP) {
+          alert("Email OTP Verified Successfully!");
+
+          // Hide OTP input, button, and label
+          document.getElementById("email-otp-container").style.display = "none";
+
+          // Add green checkmark next to email field
+          document
+            .getElementById("user_email")
+            .insertAdjacentHTML(
+              "afterend",
+              "<span style='color: green; font-size: 18px; margin-left: 5px;'>✔️</span>"
+            );
+
+          sessionStorage.setItem("email_verified", "true");
+          checkBothVerified();
+        } else {
+          alert("Invalid OTP. Please try again.");
+        }
+      }
+
+      // Function to send phone OTP
+      function sendOTP() {
+        let phone = document.getElementById("phone-number").value;
+        let sendPhoneBtn = document.querySelector(
+          "button[onclick='sendOTP()']"
+        );
+
+        if (!phone.match(/^\d{10}$/)) {
+          alert("Enter a valid 10-digit phone number");
+          return;
+        }
+
+        let apiKey = "3fcaf276-e960-11ef-8b17-0200cd936042"; // Replace with your 2Factor API Key
+        let url = `https://2factor.in/API/V1/${apiKey}/SMS/${phone}/AUTOGEN`;
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.Status === "Success") {
+              sessionStorage.setItem("session_id", data.Details);
+              alert("OTP sent successfully!");
+              sendPhoneBtn.style.display = "none"; // Hide send OTP button
+            } else {
+              alert("Failed to send OTP. Please try again.");
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+
+      // Function to verify phone OTP
+      function verifyOTP() {
+        let userOTP = document.getElementById("otp-code").value;
+        let sessionId = sessionStorage.getItem("session_id");
+
+        if (!sessionId) {
+          alert("Session expired. Please request a new OTP.");
+          return;
+        }
+
+        let apiKey = "3fcaf276-e960-11ef-8b17-0200cd936042"; // Replace with your 2Factor API Key
+        let url = `https://2factor.in/API/V1/${apiKey}/SMS/VERIFY/${sessionId}/${userOTP}`;
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.Status === "Success") {
+              alert("Phone OTP Verified Successfully!");
+
+              // Hide OTP input, button, and label
+              document.getElementById("phone-otp-container").style.display =
+                "none";
+
+              // Add green checkmark next to phone field
+              document
+                .getElementById("phone-number")
+                .insertAdjacentHTML(
+                  "afterend",
+                  "<span style='color: green; font-size: 18px; margin-left: 5px;'>✔️</span>"
+                );
+
+              sessionStorage.setItem("phone_verified", "true");
+              checkBothVerified();
+            } else {
+              alert("Invalid OTP. Please try again.");
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+    </script>
+  </body>
+</html>

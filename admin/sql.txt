@@ -1,0 +1,80 @@
+CREATE DATABASE homecare_experts;
+
+===================================================================================================
+
+-- Workers Table
+CREATE TABLE workers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    job_role VARCHAR(100) NOT NULL
+);
+
+-- Employers Table
+CREATE TABLE employers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    status ENUM('pending', 'approved') DEFAULT 'pending'
+);
+
+-- Jobs Table
+CREATE TABLE jobs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    description TEXT
+);
+
+-- Users Table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    role ENUM('admin', 'worker', 'employer') NOT NULL
+);
+
+-- Settings Table
+CREATE TABLE settings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    setting_key VARCHAR(100) NOT NULL,
+    setting_value TEXT
+);
+
+===================================================================================================
+
+-- Insert into Workers
+INSERT INTO workers (name, job_role) VALUES
+('John Doe', 'Caregiver'),
+('Jane Smith', 'Nurse'),
+('Alice Johnson', 'Therapist'),
+('Bob Brown', 'Caregiver'),
+('Charlie Davis', 'Nurse');
+
+-- Insert into Employers
+INSERT INTO employers (name, status) VALUES
+('HomeCare Inc.', 'approved'),
+('CarePlus LLC', 'pending'),
+('ElderCare Solutions', 'approved'),
+('HealthFirst', 'pending'),
+('SeniorLiving', 'approved');
+
+-- Insert into Jobs
+INSERT INTO jobs (title, description) VALUES
+('Caregiver Needed', 'Looking for a caregiver for elderly patient.'),
+('Nurse Position', 'Full-time nurse required for home care.'),
+('Therapist Job', 'Experienced therapist needed for home visits.'),
+('Part-Time Caregiver', 'Part-time caregiver for a disabled patient.'),
+('Live-In Nurse', 'Live-in nurse for 24/7 care.');
+
+-- Insert into Users
+INSERT INTO users (username, role) VALUES
+('admin1', 'admin'),
+('worker1', 'worker'),
+('employer1', 'employer'),
+('worker2', 'worker'),
+('employer2', 'employer');
+
+-- Insert into Settings
+INSERT INTO settings (setting_key, setting_value) VALUES
+('site_name', 'HomeCare Experts'),
+('site_email', 'admin@homecare.com'),
+('maintenance_mode', 'off'),
+('theme_color', 'red'),
+('max_users', '100');

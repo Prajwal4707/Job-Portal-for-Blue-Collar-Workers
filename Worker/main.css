@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
+  background-color: #f9f9f9;
+  color: #362e4e;
+  line-height: 1.6;
+}
+
+div>a {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
+
+h1 {
+  font-family: "Noto Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo img {
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Navigation Links */
+.nav-link {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 1em;
+  transition: color 0.3s ease;
+  padding-right: 35px;
+}
+
+.nav-link:hover {
+  color: #ff5100;
+}
+
+/* Hero Image */
+.hero-image img {
+  width: 75%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Header Content */
+.header-content {
+  text-align: center;
+  background: #2193b0;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right,
+      #6dd5ed,
+      #2193b0);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,
+      #67d7f0,
+      #f3040c);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: white;
+  padding: 20px;
+}
+
+.header-content h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-content p {
+  font-size: 1.2em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f7fc;
+  color: #333;
+}
+
+.how-it-works {
+  text-align: center;
+  padding: 60px 0;
+  background: #fff;
+}
+
+.step {
+  text-align: center;
+  padding: 30px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+}
+
+.step img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.step-circle {
+  width: 60px;
+  height: 60px;
+  background: #007bff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 15px auto;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.step-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 12px 0;
+}
+
+.step-description {
+  font-size: 16px;
+  color: #555;
+}
+
+.why-choose-us {
+  padding: 10px 0;
+  /* background: #007bff; */
+  color: black;
+  /* text-align: center; */
+}
+
+.why-choose-us h2 {
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.why-choose-us ul {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.why-choose-us ul li {
+  font-size: 18px;
+  /* margin: 12px 0; */
+  position: relative;
+  padding-left: 25px;
+}
+
+.why-choose-us ul li::before {
+  content: '\f058';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: blue;
+}
+
+.slider {
+  position: relative;
+  height: 40%;
+  width: 75%;
+  margin: auto;
+  overflow: hidden;
+  border: 2px solid #ccc;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+  position: relative;
+  height: 330px;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #3f3f3f;
+  color: white;
+  padding: 10px;
+  font-size: 0.9em;
+}
+
+footer #aboutSection {
+  text-align: left;
+}
+
+footer #contactSection {
+  text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    /* Hide links on smaller screens */
+  }
+}

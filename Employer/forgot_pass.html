@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Password</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #667eea, #764ba2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 350px;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .input-box {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 10px;
+        background: #667eea;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .btn:hover {
+        background: #5a67d8;
+      }
+
+      #message,
+      #resetToken {
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      #resetToken {
+        color: green;
+        display: none;
+      }
+    </style>
+    <script>
+      function sendResetLink(event) {
+        event.preventDefault();
+        let email = document.getElementById("email").value;
+
+        fetch("forgot_password.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            let messageBox = document.getElementById("message");
+            let resetTokenBox = document.getElementById("resetToken");
+
+            if (data.reset_token) {
+              messageBox.innerHTML =
+                "✅ Use the token below to reset your password.";
+              messageBox.style.color = "green";
+              resetTokenBox.innerHTML = "Reset Token: " + data.reset_token;
+              resetTokenBox.style.display = "block";
+
+              // Redirect to reset password page after 3 seconds
+              setTimeout(() => {
+                window.location.href = "reset_pass.html";
+              }, 3000);
+            } else {
+              messageBox.innerHTML = "⚠ " + data.message;
+              messageBox.style.color = "red";
+              resetTokenBox.style.display = "none";
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Forgot Password</h2>
+      <form onsubmit="sendResetLink(event)">
+        <input
+          type="email"
+          id="email"
+          class="input-box"
+          placeholder="Enter your registered email"
+          required
+        />
+        <button type="submit" class="btn">Get Reset Token</button>
+      </form>
+      <p id="message"></p>
+      <p id="resetToken"></p>
+    </div>
+  </body>
+</html>

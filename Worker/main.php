@@ -1,0 +1,263 @@
+<?php include 'counter.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blue Collar Job Portal</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="backtotop.css" />
+  <link
+    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-3 font-sans-serif" href="main.html"><img src="./images/HomeCare_logo.JPG" alt="HomeCare_Experts" /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="nav-content"></ul>
+        <a class="nav-link fs-5 fst-italic" href="main.html">Home</a>
+        <a class="nav-link fs-5 fst-italic" href="jobs.php">Jobs</a>
+        <a class="nav-link fs-5 fst-italic" id="scrollButton">About</a>
+        <a class="nav-link fs-5 fst-italic" id="scrollButton1">Contact</a>
+        <a class="nav-link fs-5 fst-italic" href="emp_login.html"><i class="bx bxs-user">Login/Signup</i></a>
+      </div>
+    </nav>
+    <div class="header-content">
+      <h1>HomeCare Experts</h1>
+      <p>Connecting hardworking individuals with the best opportunities</p>
+    </div>
+  </header>
+
+  <section id="aboutSection" class="p-4">
+    <br />
+    <h2>Connect People with the</h2>
+    <h2>Right Jobs for Them</h2>
+    <p>
+      We are specialists in bridging the gaps between blue collar job
+      vacancies and seekers. We nurture a vast database of competent blue
+      collar job seekers bestowing the best info to credible recruiters. Our
+      application will assist candidates in searching for the best paying blue
+      collar jobs. It will also assist employers in hiring the best workforce
+      for a multitude of sectors.
+    </p>
+    <br />
+  </section>
+
+  <div class="hero-image">
+    <img src="animated2.jpg" alt="Job Portal Banner" /><br /><br />
+  </div>
+
+  <section class="how-it-works">
+    <center>
+      <h2 style="font-size: large; font: 3em sans-serif" class="p-4">
+        How It Works
+      </h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 step">
+            <img
+              src="./images/step1.png"
+              height="80%"
+              width="90%"
+              alt="Step 1" />
+            <div class="step-circle">1</div>
+            <div class="step-title">Choose your Preferred Language</div>
+            <p class="step-description">
+              Download BluJobs app & choose preferred language
+            </p>
+          </div>
+          <div class="col-md-3 step">
+            <img
+              src="./images/step2.png"
+              height="80%"
+              width="90%"
+              alt="Step 2" />
+            <div class="step-circle">2</div>
+            <div class="step-title">Register with your Details</div>
+            <p class="step-description">
+              Register and you may also record details via voice
+            </p>
+          </div>
+          <div class="col-md-3 step">
+            <img
+              src="./images/step3.png"
+              height="80%"
+              width="90%"
+              alt="Step 3" />
+            <div class="step-circle">3</div>
+            <div class="step-title">Find your Jobs Easily</div>
+            <p class="step-description">
+              Search and apply for jobs as per your skills
+            </p>
+          </div>
+          <div class="col-md-3 step">
+            <img
+              src="./images/step4.png"
+              height="80%"
+              width="90%"
+              alt="Step 4" />
+            <div class="step-circle">4</div>
+            <div class="step-title">Schedule Interview</div>
+            <p class="step-description">
+              Schedule interview with employer & get hired
+            </p>
+          </div>
+        </div>
+      </div>
+    </center>
+  </section>
+
+  <section class="why-choose-us">
+    <br /><br /><br />
+    <div class="container">
+      <h2>Why Choose Us?</h2>
+      <ul>
+        <li>Quick and easy job applications.</li>
+        <li>Verified employers and skilled workers.</li>
+        <li>Wide range of job categories.</li>
+        <li>Free access for job seekers.</li>
+        <li>User-Friendly Interface - Easily navigate and apply for jobs.</li>
+        <li>Instant Job Alerts Get notified about new job opportunities.</li>
+        <li>Secure & Trustworthy - Ensures a safe hiring process.</li>
+        <li>AI-Based Job Matching - Smart recommendations for you.</li>
+        <li>24/7 Customer Support - Dedicated assistance anytime.</li>
+        <li>Resume Builder - Create and upload your professional resume.</li>
+        <li>
+          Flexible Job Options - Full-time, part-time, freelance & remote.
+        </li>
+        <li>Career Growth Resources - Tips, training, and insights.</li>
+        <li>
+          Multi-Language Support - Browse jobs in your preferred language.
+        </li>
+        <li>Zero Hidden Fees - Completely free for job seekers.</li>
+      </ul>
+    </div>
+  </section>
+
+  <br /><br />
+  <div class="slider">
+    <button class="prev"></button>
+    <div class="slides">
+      <div class="slide">
+        <img src="./images/plum.jpg" height="55%" alt="Slide 1" />
+      </div>
+      <div class="slide">
+        <img src="./images/electric.jpg" height="55%" alt="Slide 2" />
+      </div>
+      <div class="slide">
+        <img src="./images/geyser.png" alt="Slide 3" />
+      </div>
+      <div class="slide">
+        <img src="./images/Welding.jpg" height="55%" alt="Slide 4" />
+      </div>
+      <div class="slide">
+        <img src="./images/paint.jpg" height="55%" alt="Slide 5" />
+      </div>
+      <div class="slide">
+        <img src="./images/carpenter.jpeg" height="55%" alt="Slide 5" />
+      </div>
+    </div>
+    <button class="next">></button>
+  </div>
+
+  <section id="testimonials" class="p-4">
+    <h2>What Our Users Say</h2>
+    <p>
+      <strong>Rahul Sharma:</strong> "I found a plumbing job within two days.
+      Amazing platform!"
+    </p>
+    <p>
+      <strong>Anita Verma:</strong> "Very user-friendly! I got hired as a
+      carpenter in no time."
+    </p>
+    <p>
+      <strong>Mohammed Khan:</strong> "Best place for blue-collar job seekers.
+      Highly recommended!"
+    </p>
+  </section>
+
+  <section id="howItWorks" class="p-4 bg-light">
+    <h2>How It Works</h2>
+    <ol>
+      <li>Sign up as a job seeker or employer.</li>
+      <li>Browse available jobs or post a job requirement.</li>
+      <li>Apply for jobs or hire candidates easily.</li>
+      <li>Get connected and start working!</li>
+    </ol>
+  </section>
+
+  <section id="aboutSection" class="p-4">
+    <h2>About Us</h2>
+    <p>
+      HomeCare Experts is a dedicated platform connecting skilled blue-collar
+      workers with job opportunities in various fields, including plumbing,
+      electrical work, painting, carpentry, and more. We aim to bridge the gap
+      between skilled workers and employers looking for reliable
+      professionals.
+    </p>
+    <p>
+      Our platform ensures seamless job postings, easy applications, and
+      direct communication between employers and job seekers.
+    </p>
+  </section>
+  <footer class="p-4 bg-dark text-white">
+    <div id="contactSection">
+      <h4>Contact Us</h4>
+      <h5>Aradhya Engineerings</h5>
+      <p>
+        Plot no.4, Scheme no.17, Buda colony, Angol, Belagavi. <br />
+        Phone: +91-9880908143 <br />
+        Email: support@homecareexperts.com
+      </p>
+    </div>
+
+    <!-- Hit Counter Display -->
+
+    <a href='https://www.free-counters.org/'>Free-Counters.org</a>
+    <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=1e8b00b57ae13de638fefcb2106387f93672e5be'></script>
+    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1311223/t/10"></script>
+
+    <!-- <a href='https://www.free-counters.org/'>Free-Counters.org</a>
+    <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=8b73af29d7a31ac91af7507101d1e63720ca5cea'></script>
+    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1311221/t/2"></script> -->
+
+    <!-- <p class="text-center">Total Visitors:
+        <?php echo number_format($count); ?>
+    </p> -->
+
+    <button id="back-to-top" onclick="topFunction()">&#10548;</button>
+    <p class="text-center">
+      &copy; 2025 HomeCare Experts. All rights reserved.
+    </p>
+  </footer>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"></script>
+  <script src="backtotop.js"></script>
+</body>
+
+</html>

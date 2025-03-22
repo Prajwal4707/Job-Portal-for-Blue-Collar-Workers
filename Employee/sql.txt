@@ -1,0 +1,24 @@
+CREATE TABLE applications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    job_id INT NOT NULL, -- Links application to a specific job
+    name VARCHAR(255) NOT NULL,
+    gender ENUM('male', 'female', 'other') NOT NULL,
+    dob DATE NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    contact VARCHAR(15) NOT NULL,
+    country VARCHAR(100) NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    district VARCHAR(100) NOT NULL,
+    experience INT NOT NULL, -- Years of experience
+    job_role VARCHAR(50) NOT NULL,
+    job_type ENUM('Full-time', 'Part-time', 'Contract', 'Internship') NOT NULL,
+    expected_salary DECIMAL(10,2) DEFAULT NULL, -- Optional expected salary field
+    skills TEXT NOT NULL, -- List of skills (comma-separated or JSON)
+    cover_letter TEXT DEFAULT NULL, -- Optional cover letter
+    status ENUM('Pending', 'Shortlisted', 'Rejected', 'Hired') DEFAULT 'Pending', -- Application status
+    photo VARCHAR(255) NOT NULL,
+    id_proof VARCHAR(255) NOT NULL,
+    resume VARCHAR(255) NOT NULL,
+    submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE CASCADE -- Link to jobs table
+);
